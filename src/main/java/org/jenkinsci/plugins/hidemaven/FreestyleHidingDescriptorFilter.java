@@ -1,21 +1,22 @@
-package org.jenkinsci.plugins.hidemaven;
+package org.jenkinsci.plugins.hidefreestyle;
 
 import hudson.Extension;
 import hudson.model.Descriptor;
 import hudson.model.DescriptorVisibilityFilter;
 
 @Extension
-public class MavenHidingDescriptorFilter extends DescriptorVisibilityFilter {
+public class FreestyleHidingDescriptorFilter extends DescriptorVisibilityFilter {
 
-    public static boolean DISABLE = false;
+    public static final boolean disableFlag = false;
 
     // return true to allow
     @Override
     public boolean filter(Object context, Descriptor descriptor) {
-        if (DISABLE) {
+        if (disableFlag) {
             return true;
         }
-        if (descriptor.getId() != null && descriptor.getId().equals("hudson.maven.MavenModuleSet")) {
+
+        if (descriptor.getId() != null && descriptor.getId().equals("hudson.model.FreeStyleProject")) {
             return false;
         }
         return true;

@@ -1,0 +1,73 @@
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  labelAtoms:
+  - name: "master"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    crowd:
+      applicationName: "jenkins"
+      cookieTokenkey: "crowd.token_key"
+      group: "jenkins-users"
+      httpMaxConnections: "20"
+      httpProxyPassword: "{AQAAABAAAAKQyaypPNLWDsf81k9mzYnn1y8SaRqlL0r0lsYHnVZbjagmPepj0SyldTxZqDtT6B8DK22yNYLv0hhzjuJyzj6Pnwldc8A3ov1//CgUgd/aUJh9bDtFBgUAm3uVP7Q2XUQ8GgMJlf4KASlP6WtUSNyYSJNmNduamm/hBGiIK1cUsPlIbFRCWmxnpLHOmWdcFPKLbVT9OfEVI31pbErpwCyp3UQRFLv7NL5nG4pY1xrKuPNGX/WHgGOojL6XdUm5dQZny3CBCXJ8bHyFMivCpbXCAd31AhnstmNrNNHwFCxVgU4O3UHbEBXrw/dFPpyNT/JOSuSTyXIwZmEaTHj0DAv5V6vy8EedrbHAIVa07bW7lFNoCdiNdz0NqpP4ehJx13gv+6XGAgbM22FFUz6xxQj0m1C/oX4ET9KczVCacbAyYsdlTugYQOQnEIyqqM0OYEpkxFdnBGrdYM/1Kh2V0/qXf6uLrzp0i4UD3S281OesyGlFLac7L52PwXwutbVasG9Evrm/+H/+ccOB5GV9YT9EZi3rwzbpnOBnTKUS2wNpvtsR5SK3cMg2MGVivtr3t/K1rb6zOKqWzi0ODf0sSUkJKal4qWaWnG8LYZBoalyj0XDxOaE/B3B7fI0HPn8F097TSBHBKnjRQL8OYOdXcq72bs1ItKIBpP6EG096biZNrKRIn/QlF3cdkf+pL1fVE9U+gag4kpRx8rLNd9h1FcXXkhOXO5AxqrhsVjGp2mF0YVoF6E1Uq6JECzok8kMGzv5G6gmFGjdKniCf2ATWGwIMNe2ISo2hYz5PO1CFP/3euCoDlcm7pV2y96YD/gMXqw5foMQNUCO53hnK+BIBrQKfLBaZsISJmObNh2Q9P9ChayN3O8BHHVR65U6DO/2JOCSv}"
+      httpTimeout: "5000"
+      nestedGroups: false
+      password: "{AQAAABAAAAAQ+ZLoqf+drRYb4sDv6GMg9qlPnnyP4l1okQQ00ifYNPk=}"
+      sessionValidationInterval: 2
+      socketTimeout: "20000"
+      url: "http://crowd:8095/crowd/"
+      useProxy: false
+      useSSO: false
+  slaveAgentPort: 50000
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  sSHD:
+    port: -1
+unclassified:
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  location:
+    adminAddress: "nobody@nowhere"
+    url: "https://${JENKINS_SITE_NAME}"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  pollSCM:
+    pollingThreadCount: 10
+tool:
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"

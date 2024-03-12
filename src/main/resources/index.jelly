@@ -1,6 +1,4 @@
-<!--
-  This view is used to render the installed plugins page.
--->
+<?jelly escape-by-default='true'?>
 <div>
-  Hides the Maven Project type from the 'New Job' page.
+  Hides Freestyle Job from pipeline creation options.
 </div>
