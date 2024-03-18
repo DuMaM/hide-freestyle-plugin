@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+  <f:section title="${%name}">
+    <f:checkbox title="${%freestyle}" field="lockFreestyle" />
+    <f:checkbox title="${%pipeline}" field="lockPipeline" />
+    <f:checkbox title="${%multibranch}" field="lockMultibranch" />
+    <f:checkbox title="${%organization}" field="lockOrganization" />
+    <f:checkbox title="${%maven}" field="lockMaven" />
+
+    <f:advanced>
+      <f:checkbox title="${%admins}" field="allowAdmins" />
+    </f:advanced>
+  </f:section>
+</j:jelly>

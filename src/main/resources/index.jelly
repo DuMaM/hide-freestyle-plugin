@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-  Hides Freestyle Job from pipeline creation options.
+  Locks Project creation from UI.
 </div>
