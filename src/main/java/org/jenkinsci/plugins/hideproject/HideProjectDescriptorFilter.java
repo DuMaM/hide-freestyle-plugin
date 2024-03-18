@@ -1,11 +1,11 @@
-package org.jenkinsci.plugins.hidefreestyle;
+package org.jenkinsci.plugins.hideproject;
 
 import hudson.Extension;
 import hudson.model.Descriptor;
 import hudson.model.DescriptorVisibilityFilter;
 
 @Extension
-public class FreestyleHidingDescriptorFilter extends DescriptorVisibilityFilter {
+public class HideProjectDescriptorFilter extends DescriptorVisibilityFilter {
 
     public static final boolean disableFlag = false;
 
