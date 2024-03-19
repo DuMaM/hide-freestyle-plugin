@@ -2,14 +2,13 @@ package org.jenkinsci.plugins.lockproject;
 
 import hudson.Extension;
 import hudson.ExtensionList;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import jenkins.model.GlobalConfiguration;
-
+import net.sf.json.JSONObject;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.StaplerRequest;
 
 @Extension
 public class LockProject extends GlobalConfiguration {
@@ -32,8 +31,8 @@ public class LockProject extends GlobalConfiguration {
   public LockProject() {
     // When Jenkins is restarted, load any saved configuration from disk.
     load();
-
     logger.log(Level.INFO, "LockProject plugin is loaded created");
+    this.getDescriptor().save();
   }
 
   public Boolean getLockFreestyle() {
@@ -43,7 +42,7 @@ public class LockProject extends GlobalConfiguration {
   @DataBoundSetter
   public void setLockFreestyle(Boolean lockFreestyle) {
     this.lockFreestyle = lockFreestyle;
-    save();
+    logger.log(Level.INFO, "Freesytle lock set to " + lockFreestyle + " by " + "admin");
   }
 
   public Boolean getLockPipeline() {
@@ -53,7 +52,7 @@ public class LockProject extends GlobalConfiguration {
   @DataBoundSetter
   public void setLockPipeline(Boolean lockPipeline) {
     this.lockPipeline = lockPipeline;
-    save();
+    logger.log(Level.INFO, "Pipeline lock set to " + lockPipeline + " by " + "admin");
   }
 
   public Boolean getLockMultibranch() {
@@ -63,7 +62,7 @@ public class LockProject extends GlobalConfiguration {
   @DataBoundSetter
   public void setLockMultibranch(Boolean lockMultibranch) {
     this.lockMultibranch = lockMultibranch;
-    save();
+    logger.log(Level.INFO, "Multibranch lock set to " + lockMultibranch + " by " + "admin");
   }
 
   public Boolean getLockOrganization() {
@@ -73,7 +72,7 @@ public class LockProject extends GlobalConfiguration {
   @DataBoundSetter
   public void setLockOrganization(Boolean lockOrganization) {
     this.lockOrganization = lockOrganization;
-    save();
+    logger.log(Level.INFO, "Organization lock set to " + lockOrganization + " by " + "admin");
   }
 
   public Boolean getLockMaven() {
@@ -83,7 +82,7 @@ public class LockProject extends GlobalConfiguration {
   @DataBoundSetter
   public void setLockMaven(Boolean lockMaven) {
     this.lockMaven = lockMaven;
-    save();
+    logger.log(Level.INFO, "Maven lock set to " + lockMaven + " by " + "admin");
   }
 
   public Boolean getAllowAdmins() {
@@ -93,6 +92,13 @@ public class LockProject extends GlobalConfiguration {
   @DataBoundSetter
   public void setAllowAdmins(Boolean allowAdmins) {
     this.allowAdmins = allowAdmins;
+    logger.log(Level.INFO, "Allow admins set to " + allowAdmins);
+  }
+
+  @Override
+  public boolean configure(StaplerRequest req, JSONObject jsonObject) throws FormException {
+    req.bindJSON(this, jsonObject);
     save();
+    return true;
   }
 }

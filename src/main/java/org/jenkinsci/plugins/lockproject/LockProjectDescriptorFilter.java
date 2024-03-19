@@ -1,16 +1,13 @@
 package org.jenkinsci.plugins.lockproject;
 
-
 import hudson.Extension;
 import hudson.model.Descriptor;
 import hudson.model.DescriptorVisibilityFilter;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BooleanSupplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import jenkins.model.Jenkins;
 
 @Extension
@@ -19,7 +16,7 @@ public class LockProjectDescriptorFilter extends DescriptorVisibilityFilter {
 
     // map which translate project name to class name
     private Map<String, BooleanSupplier> projectTypes = new HashMap<>();
-    private static final Logger logger = Logger.getLogger(LockProject.class.getName());
+    private static final Logger logger = Logger.getLogger(LockProjectDescriptorFilter.class.getName());
 
     public LockProjectDescriptorFilter() {
         projectTypes.put("hudson.model.FreeStyleProject", () -> instance.getLockFreestyle());
@@ -37,8 +34,6 @@ public class LockProjectDescriptorFilter extends DescriptorVisibilityFilter {
         if (descriptor == null) {
             return true;
         }
-
-        logger.log(Level.FINEST, "Filtering descriptor: {0}", descriptor.getClass().getName());
 
         String id = descriptor.getId();
         if (id == null || id.isEmpty()) {
