@@ -28,8 +28,7 @@
   <url>https://github.com/${gitHubRepo}</url>
 
   <issueManagement>
-    <system>JIRA</system>
-    <url>https://issues.jenkins-ci.org/</url>
+    <system>GITHUB</system>
   </issueManagement>
 
   <developers>

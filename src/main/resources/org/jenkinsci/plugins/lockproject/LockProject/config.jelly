@@ -2,6 +2,9 @@
 <?jelly escape-by-default="true"?>
 <j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
   <f:section title="${%name}">
+    <f:description>
+      ${%description}
+    </f:description>
     <f:entry title="${%freestyle}" field="lockFreestyle">
       <f:checkbox default="false" />
     </f:entry>
