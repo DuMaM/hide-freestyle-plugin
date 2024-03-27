@@ -14,6 +14,11 @@ Feel free to pick up any issue from the bellow TODO list or propose your own ide
 Inside `casc` folder you can find setup for dockerized Jenkins with installation process.
 To use it run `./_start.sh` and open `http://localhost:8080` in your browser.
 
+### Documentation
+
+* [jelly docs](https://reports.jenkins.io/core-taglib/jelly-taglib-ref.html)
+* [jelly implementation](https://github.com/jenkinsci/jenkins/tree/master/core/src/main/resources/lib)
+
 ## TODO list
 
 * fix requirement to restart Jenkins to apply changes
